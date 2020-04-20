@@ -1,6 +1,14 @@
 version: '1.0'
 steps:
 
+  Clone:
+    title: Running docker image
+    type: git-clone
+    arguments:
+      repo: '${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}'
+      git: github
+      revision: '${{CF_REVISION}}'
+
   build_dev_step:
     type: build
     dockerfile: Dockerfile.dev
